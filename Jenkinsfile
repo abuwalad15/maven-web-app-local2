@@ -2,7 +2,6 @@ pipeline {
 	agent any
 	
 	tools{
-        	git 'git-local'
 		maven 'maven-3.9.9'
 	    	}
 	
@@ -21,7 +20,7 @@ pipeline {
 
 	stage('Deployment'){
 		steps{
-		deploy adapters: [tomcat9(credentialsId: '3ba6446b-de39-4611-a131-f6bc1404022a', path: '', url: 'http://localhost:8080/')], contextPath: 'maven-web-app-local', war: 'target/*.war'
+		deploy adapters: [tomcat9(credentialsId: 'tomcat-credential', path: '', url: 'http://localhost:8080/')], contextPath: 'maven-web-app-local2', war: 'target/*.war'
 		
 		}
 	}
