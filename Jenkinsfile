@@ -2,14 +2,14 @@ pipeline {
 	agent any
 	
 	tools{
-        maven 'maven-3.9.9'
+        	git 'git-local'
+		maven 'maven-3.9.9'
 	    	}
 	
 	stages{
 		stage('Checkout Code'){
 			steps{
 				checkout scm
-				git branch: 'main', url: 'https://github.com/user/repo.git'
 				}
 			}
 
